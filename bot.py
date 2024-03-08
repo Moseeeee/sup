@@ -29,7 +29,7 @@ from telebot.types import BotCommand, BotCommandScopeChat
 
 
 
-API_TOKEN = '6438279714:AAGH7A6JoEtefmJNYgUBPryUzPYPTuqU0Fs'
+API_TOKEN = '7017976892:AAGPCuZmgd67nmrem0yXIztfiP87vX0hocc'
 bot = telebot.TeleBot(API_TOKEN)
 
 
