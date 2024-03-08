@@ -48,15 +48,25 @@ sys.excepthook = error_handler
 
 #Чат для общения
 
-commands = [BotCommand('report', '🚫пожаловаться на пользователя'), BotCommand('commands', '📖команды'), BotCommand ('rules', '📝правила чата'), BotCommand ('grid', '🗂️чаты сетки')]
-scope = BotCommandScopeChat(chat_id=-1002011140937)
-bot.set_my_commands(commands, scope=scope)  
+commands_chat1 = [
+    BotCommand('report', '🚫 Пожаловаться на пользователя'),
+    BotCommand('commands', '📖 Команды'),
+    BotCommand('rules', '📝 Правила чата'),
+    BotCommand('grid', '🗂️ Чаты сетки')
+]
+scope_chat1 = BotCommandScopeChat(chat_id=-1002011140937)
+bot.set_my_commands(commands_chat1, scope=scope_chat1)
 
-#Чат админов
-commands = [BotCommand('commands', '📖команды'), BotCommand ('rules', '📝правила чата'), BotCommand ('grid', '🗂️чаты сетки'), BotCommand ('addhelper', '✅добавиться в список админов'), BotCommand ('unhelper', '❌удалиться из списка админов'), BotCommands ('admncommands', '📝список админских команд')]
-scope = BotCommandScopeChat(chat_id=-1002129257694)
-bot.set_my_commands(commands, scope=scope)
-    
+commands_chat2 = [
+    BotCommand('commands', '📖 Команды'),
+    BotCommand('rules', '📝 Правила чата'),
+    BotCommand('grid', '🗂️ Чаты сетки'),
+    BotCommand('addhelper', '✅ Добавиться в список админов'),
+    BotCommand('unhelper', '❌ Удалиться из списка админов'),
+    BotCommand('admncommands', '📝 Список админских команд')
+]
+scope_chat2 = BotCommandScopeChat(chat_id=-1002129257694)
+bot.set_my_commands(commands_chat2, scope=scope_chat2)
 
 
       
