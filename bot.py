@@ -24,7 +24,6 @@ import schedule
 import threading
 from collections import deque
 from telebot.types import BotCommand, BotCommandScopeChat
-import sys
 
 
 
@@ -34,15 +33,7 @@ API_TOKEN = '6438279714:AAGH7A6JoEtefmJNYgUBPryUzPYPTuqU0Fs'
 bot = telebot.TeleBot(API_TOKEN)
 
 
-errors_chat_id = '-1002125356812'  # ID чата для отправки уведомлений об ошибках
 
-def error_handler(exception_type, exception, traceback):
-    chat_member_info = bot.get_chat_member(errors_chat_id, bot.get_me().id)
-    bot_username = chat_member_info.user.username if chat_member_info.user.username else 'Бот'
-    error_message = f"Произошла ошибка:\n{exception_type.name}: {exception}"
-    bot.send_message(errors_chat_id, error_message)
-
-sys.excepthook = error_handler
 
 
 
