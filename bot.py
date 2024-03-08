@@ -58,10 +58,7 @@ scope = BotCommandScopeChat(chat_id=-1002129257694)
 bot.set_my_commands(commands, scope=scope)
     
 
-#чат для тест драйва
-commands = [BotCommand('report', '🚫пожаловаться на пользователя'), BotCommand('commands', '📖команды'), BotCommand ('rules', '📝правила чата'), BotCommand ('grid', '🗂️чаты сетки'), BotCommand ('addcomands', '📝команды для админов')]
-scope = BotCommandScopeChat(chat_id=-1001940482569)
-bot.set_my_commands(commands, scope=scope)  
+
       
          
                
