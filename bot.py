@@ -58,12 +58,7 @@ commands_chat2 = [
     BotCommand('admncommands', '📝 Список админских команд')
 ]
 scope_chat2 = BotCommandScopeChat(chat_id=-1002129257694)
-bot.set_my_commands(commands_chat2, scope=scope_chat2)    
-
-#чат для тест драйва
-commands = [BotCommand('report', '🚫пожаловаться на пользователя'), BotCommand('commands', '📖команды'), BotCommand ('rules', '📝правила чата'), BotCommand ('grid', '🗂️чаты сетки'), BotCommand ('addcomands', '📝команды для админов')]
-scope = BotCommandScopeChat(chat_id=-1001940482569)
-bot.set_my_commands(commands, scope=scope)  
+bot.set_my_commands(commands_chat2, scope=scope_chat2)      
       
          
                
@@ -460,7 +455,7 @@ def admins_are_cool(message):
  #ЛС
 @bot.message_handler(func=lambda message: message.text.strip().lower() == 'лс сапа')
 def handle_message(message):
-    bot.reply_to(message, "тыкните на мой профиль")
+    bot.reply_to(message, "Лс сапа: @sapcmbot")
     
     
     
@@ -477,7 +472,7 @@ allowed_users = ['6282374712', '5369435686', '5707946795']
 @bot.message_handler(func=lambda message: message.text.strip().lower() == '.сетка')
 def send_to_channels(message):
    if str(message.from_user.id) in allowed_users:  
-    chat_ids = [-1002011140937, -1002129257694, -1001940482569] 
+    chat_ids = [-1002011140937, -1002090482811, -1002034794371] 
     text = message.text.replace('.сетка', '') 
     for chat_id in chat_ids:
         sent_message = bot.send_message(chat_id, text)
@@ -1075,10 +1070,21 @@ def handle_quarrel(message):
         user_name = message.reply_to_message.from_user.first_name
         mention = f"<a href='tg://user?id={user_id}'>{user_name}</a>"
         warning_message = f"⛔️<b>Внимание!</b> Специально для {mention} и для всех остальных. Ссоры в чатах сетки «ᎠᏫᏒᎷᏆᎢᏫᏒᎩ» запрещены.\nсоветуем прекратить ссориться, иначе мы будем вынуждены заглушить вас.\n\n🤓<i>Ссора</i> - это конфликт или разногласие между людьми, организациями или группами, которое часто сопровождается словесными выяснениями, напряженностью и негативными эмоциями.\n\n📛За игнорирование предупреждения админы имеют полное право выдать наказание, которое посчитают нужным."
+        keyboard = types.InlineKeyboardMarkup()
+        url_button1 = types.InlineKeyboardButton(text="Правила сетки", url="https://teletype.in/@drmotory/chatrules")
+        url_button2 = types.InlineKeyboardButton(text="Мой список команд", url="https://teletype.in/@drmotory/commands_support")
+        keyboard.add(url_button1, url_button2)
+                
         bot.send_message(message.chat.id, warning_message, reply_to_message_id=message.reply_to_message.message_id, parse_mode='HTML')
     else:
         warning_message = "⛔️<b>Внимание!</b> Ссоры в чатах сетки «ᎠᏫᏒᎷᏆᎢᏫᏒᎩ» запрещены.\nсоветуем прекратить ссориться, иначе мы будем вынуждены заглушить вас.\n\n🤓<i>Ссора</i> - это конфликт или разногласие между людьми, организациями или группами, которое часто сопровождается словесными выяснениями, напряженностью и негативными эмоциями.\n\n📛За игнорирование предупреждения админы имеют полное право выдать наказание, которое посчитают нужным."
-        bot.send_message(message.chat.id, warning_message, parse_mode='HTML')
+
+        keyboard = types.InlineKeyboardMarkup()
+        url_button1 = types.InlineKeyboardButton(text="Правила сетки", url="https://teletype.in/@drmotory/chatrules")
+        url_button2 = types.InlineKeyboardButton(text="Мой список команд", url="https://teletype.in/@drmotory/commands_support")
+        keyboard.add(url_button1, url_button2)
+        
+        bot.send_message(message.chat.id, warning_message, reply_markup=keyboard, parse_mode='HTML')
         
 
 
